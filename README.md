@@ -1,0 +1,2 @@
+# Studio-Microphone-Preamplifier-with-Analog-Tape-Saturation-Emulation
+High-performance microphone preamplifier for professional recording. Designed for transparent audio with ultra-low noise and harmonic distortion. Includes an optional analog tape saturation stage to emulate magnetic tape coloration, providing both clean and vintage recording tones. Circuit design, PCB development, testing, and validation.
