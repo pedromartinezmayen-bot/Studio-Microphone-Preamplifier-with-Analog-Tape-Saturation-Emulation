@@ -1,0 +1,25 @@
+clear
+clc
+close all
+
+% Leer el archivo
+T = readtable("Draft1.txt");
+
+% Frecuencia
+f = T.Freq_;
+
+% Convertir la columna de texto a string
+txt = string(T.V_vout_);
+
+% Extraer la magnitud (dB)
+mag = regexp(txt,'([-+]?\d*\.?\d+e[-+]?\d+)dB','tokens');
+mag = cellfun(@(x) str2double(x{1}), mag);
+
+% Graficar
+figure
+semilogx(f,mag,'LineWidth',2)
+
+grid on
+xlabel('Frecuencia (Hz)')
+ylabel('Magnitud (dB)')
+title('Respuesta en frecuencia')

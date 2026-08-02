@@ -1,0 +1,27 @@
+%% ===== Frecuencia característica para filtro Shelving =====
+
+% Promedio de las primeras y últimas muestras
+gananciaBaja = mean(mag(1:50));
+gananciaAlta = mean(mag(end-49:end));
+
+% Nivel medio de la transición
+nivelShelving = (gananciaBaja + gananciaAlta)/2;
+
+% Buscar la frecuencia donde la curva está más cerca del nivel medio
+[~,indice] = min(abs(mag - nivelShelving));
+
+% Frecuencia característica
+fc = f(indice);
+
+% Mostrar resultados
+fprintf('\n');
+fprintf('Ganancia baja frecuencia : %.2f dB\n',gananciaBaja);
+fprintf('Ganancia alta frecuencia : %.2f dB\n',gananciaAlta);
+fprintf('Frecuencia característica: %.2f Hz\n',fc);
+
+% Dibujar el punto
+hold on
+plot(fc,mag(indice),'ro','MarkerSize',10,'LineWidth',2)
+
+text(fc,mag(indice),sprintf('  Fc = %.1f Hz',fc),...
+    'FontSize',11,'FontWeight','bold')

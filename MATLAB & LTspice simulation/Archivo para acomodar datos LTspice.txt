@@ -1,0 +1,9 @@
+clear
+clc
+close all
+
+% Leer archivo
+T = readtable("Draft1.txt");
+
+% Mostrar las primeras filas
+head(T)
